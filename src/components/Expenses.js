@@ -1,16 +1,20 @@
+import Card from "./Card";
 import ExpenseItem from "./ExpenseItem";
-import "./Expenses.css"
+
+import "./Expenses.css";
 
 function Expenses(props) {
+
+    const classes = 'expenses ' + props.className;
 
     const expenseItems = props.expenses.map((expenseItem) =>
         <ExpenseItem expense={expenseItem}/>
     );
 
     return (
-        <div className="expenses">
+        <Card className={classes}>
             {expenseItems}
-        </div>
+        </Card>
     );
 }
 
