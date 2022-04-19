@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     const today = new Date().toISOString().split('T')[0];
 
     // const [enteredTitle, setEnteredTitle] = useState('');
@@ -38,8 +38,14 @@ const ExpenseForm = () => {
             amount: parseFloat(userInput.enteredAmount),
             date: new Date(userInput.enteredDate)
         };
+        props.onSaveExpenseData(expenseData);
         setUserInput(() => {
-            return { ...userInput, enteredTitle: '', enteredDate: '', enteredAmount: '' };
+            return {
+                ...userInput,
+                enteredTitle: '',
+                enteredDate: '',
+                enteredAmount: ''
+            };
         });
     };
 
